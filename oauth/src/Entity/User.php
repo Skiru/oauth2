@@ -53,11 +53,25 @@ class User implements UserInterface
     private $avatarUri;
 
     /**
+     * @var string|null
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $googleId;
+
+    /**
      * @return string
      */
     public function getFirstName(): string
     {
         return $this->firstName;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getGoogleId(): ?string
+    {
+        return $this->googleId;
     }
 
     /**
@@ -69,26 +83,11 @@ class User implements UserInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getAvatarUri(): string
+    public function getAvatarUri(): ?string
     {
         return $this->avatarUri;
-    }
-
-    /**
-     * @var string
-     * @ORM\Column(type="string")
-     */
-    private $googleId;
-
-
-    /**
-     * @return string
-     */
-    public function getGoogleId(): string
-    {
-        return $this->googleId;
     }
 
     /**
@@ -127,7 +126,7 @@ class User implements UserInterface
 
     public function getSalt()
     {
-        // TODO: Implement getSalt() method.
+        return null;
     }
 
     public function getUsername()
